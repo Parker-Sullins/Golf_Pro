@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 pandas = "*"
 sklearn = "*"
+mediapipe = "*"
+opencv-python = "*"
+numpy = "*"
 
 [dev-packages]
 

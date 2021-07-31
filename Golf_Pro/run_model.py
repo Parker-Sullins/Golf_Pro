@@ -16,9 +16,9 @@ mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2)
 num = 1
 pro_prob_counter = 0
 am_prob_counter = 0
-file_name = 'john-2'
+file_name = 'H-2'
 
-with open("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\golf_model.pkl", 'rb') as f:
+with open("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\golf_model_rf.pkl", 'rb') as f:
     model = pickle.load(f)
 
 

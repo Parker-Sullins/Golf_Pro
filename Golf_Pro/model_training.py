@@ -20,7 +20,7 @@ if flag:
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1234)
 
     pipelines = {
-        'lr':make_pipeline(StandardScaler(), LogisticRegression()),
+        'lr':make_pipeline(StandardScaler(), LogisticRegression(max_iter=200)),
         'rc':make_pipeline(StandardScaler(), RidgeClassifier()),
         'rf':make_pipeline(StandardScaler(), RandomForestClassifier()),
         'gb':make_pipeline(StandardScaler(), GradientBoostingClassifier()),
@@ -38,7 +38,7 @@ if flag:
         print(algo, accuracy_score(y_test, yhat))
 
 
-    with open("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\golf_model.pkl", 'wb') as f:
+    with open("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\golf_model_rf.pkl", 'wb') as f:
         pickle.dump(fit_models['rf'], f)
 else:
     print("Flag Is Set To False")
