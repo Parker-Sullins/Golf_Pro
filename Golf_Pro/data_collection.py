@@ -54,16 +54,9 @@ if flag:
                                      )
 
             try:
-                # Extract Pose landmarks
+                # Extract Pose landmarks Data
 
                 pose = results.pose_landmarks.landmark
-
-    #           left_shoulder, left_elbow, left_wrist = get_joint(LEFT_SHOULDER, LEFT_ELBOW, LEFT_WRIST, pose, mp_pose)
-    #           print(left_shoulder)
-    #           angle_test = calc_angle(left_shoulder, left_elbow, left_wrist)
-
-    #           angle = list(np.array([angle_test]).flatten())
-
                 current_class = list(np.array([class_name]).flatten())
                 frame_num = list(np.array([num]).flatten())
                 pose_row = list(np.array([[landmark.x, landmark.y, landmark.z,

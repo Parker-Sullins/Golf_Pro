@@ -16,13 +16,14 @@ mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2)
 num = 1
 pro_prob_counter = 0
 am_prob_counter = 0
-file_name = 'H-2'
+file_name = 'John'
+Video_Folder = "Pro_Video"
 
-with open("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\golf_model_rf.pkl", 'rb') as f:
+with open(".\\Models\\golf_model_rf.pkl", 'rb') as f:
     model = pickle.load(f)
 
 
-cap = cv2.VideoCapture("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\" + file_name + ".mp4")
+cap = cv2.VideoCapture(".\\Raw_Video\\" + Video_Folder + "\\" + file_name + ".mp4")
 # Initiate holistic model
 with mp_pose.Pose(min_detection_confidence=0, min_tracking_confidence=0, model_complexity=2) as pose_model:
 
@@ -59,14 +60,6 @@ with mp_pose.Pose(min_detection_confidence=0, min_tracking_confidence=0, model_c
             # Extract Pose landmarks
 
             pose = results.pose_landmarks.landmark
-
-#           left_shoulder, left_elbow, left_wrist = get_joint(LEFT_SHOULDER, LEFT_ELBOW, LEFT_WRIST, pose, mp_pose)
-#           print(left_shoulder)
-#           angle_test = calc_angle(left_shoulder, left_elbow, left_wrist)
-
-#          angle = list(np.array([angle_test]).flatten())
-
-#           current_class = list(np.array([class_name]).flatten())
             frame_num = list(np.array([num]).flatten())
             land_marks = list(np.array([[landmark.x, landmark.y, landmark.z,
                                        landmark.visibility] for landmark in pose]).flatten())
@@ -83,10 +76,6 @@ with mp_pose.Pose(min_detection_confidence=0, min_tracking_confidence=0, model_c
 
         except:
             pass
-
-
-
-     #   out.write(image)
 
         cv2.imshow('Frame', image)
 

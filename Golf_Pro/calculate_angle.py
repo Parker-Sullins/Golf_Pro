@@ -1,10 +1,5 @@
-import mediapipe as mp
 import numpy as np
-'''
-joint1 = [pose[mp_pose.PoseLandmark.a.value].x, pose[mp_pose.PoseLandmark.a.value].y]
-joint2 = [pose[mp_pose.PoseLandmark.b.value].x, pose[mp_pose.PoseLandmark.b.value].y]
-joint3 = [pose[mp_pose.PoseLandmark.c.value].x, pose[mp_pose.PoseLandmark.c.value].y]
-'''
+
 
 def get_landmark(a, b, c, pose, mp_pose):
     left_shoulder = [pose[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x, pose[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y]
