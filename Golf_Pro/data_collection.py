@@ -2,25 +2,23 @@ import mediapipe as mp
 import cv2
 import numpy as np
 import csv
-from calculate_angle import get_landmark, calc_angle
 
-
+#Used to illustrate Landmark detection
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
-
-# 3. Apply Styling
-mp_drawing.DrawingSpec(color=(0,0,255), thickness=2, circle_radius=2)
-
+#Specify Current Videos target variable before Data Collection
 class_name = "Pro"
+#Flag to stop accidentle data collection
 flag = False
+#Initilize number of frame, DO NOT alter
 num = 1
 
 cap = cv2.VideoCapture("C:\\Users\\prsullins\\OneDrive - Creative Manufacturing, LLC\\ALM.SWE\\DGMD-14\\tiger-2.mp4")
 
-# Initiate holistic model
-if flag:
 
+if flag:
+    # Initiate Pose model
     with mp_pose.Pose(min_detection_confidence=0, min_tracking_confidence=0, model_complexity=2) as pose_model:
 
 
@@ -41,7 +39,7 @@ if flag:
             # Make Detections
             results = pose_model.process(image)
 
-            # print(results.face_landmarks)
+
             # face_landmarks, pose_landmarks, left_hand_landmarks, right_hand_landmarks
             # Recolor image back to BGR for rendering
 
@@ -75,9 +73,6 @@ if flag:
             except:
                 pass
 
-
-
-         #   out.write(image)
 
             cv2.imshow('Frame', image)
 
